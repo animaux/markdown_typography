@@ -2,7 +2,7 @@
 <extension id="markdown_typography" status="released" xmlns="http://symphony-cms.com/schemas/extension/1.0">
 	<name>Markdown Typography</name>
 	<description>Markdown Extra, Smartypants and typographic refinements for Symphony.</description>
-	<repo type="github">https://github.com/hananils/markdown_typography</repo>
+	<repo type="github">https://github.com/animaux/markdown_typography</repo>
 	<url type="discuss">http://symphony-cms.com/discuss/thread/68618/</url>
 	<types>
 		<type>Text Formatter</type>
@@ -18,7 +18,10 @@
 		</author>
 	</authors>
 	<releases>
-	  <release version="2.2.1" date="2017-03-20" min="2.4.0" max="2.x.x">
+	  <release version="2.2.2" date="2021-12-14" min="2.7.10" max="2.x.x">
+			- PHP8 small array fix in Parsedown.php
+		</release>
+		<release version="2.2.1" date="2017-03-20" min="2.4.0" max="2.x.x">
 			- PHP7 compatibility fix
 		</release>
 		<release version="2.2.0" date="2014-06-22" min="2.4.0">

@@ -248,7 +248,7 @@ class Parsedown
 
         # ~
 
-        $Elements []= $CurrentBlock['element'];
+        $Elements []= $CurrentBlock['element'] ?? null;
 
         unset($Elements[0]);
 
