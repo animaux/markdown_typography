@@ -207,7 +207,7 @@ class Parsedown
 
                     if ( ! isset($Block['identified']))
                     {
-                        $Elements []= $CurrentBlock['element'];
+                        $Elements []= $CurrentBlock['element'] ?? null;
 
                         $Block['identified'] = true;
                     }
@@ -231,7 +231,7 @@ class Parsedown
             }
             else
             {
-                $Elements []= $CurrentBlock['element'];
+                $Elements []= $CurrentBlock['element'] ?? null;
 
                 $CurrentBlock = $this->buildParagraph($Line);
 
