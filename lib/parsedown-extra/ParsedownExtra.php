@@ -251,7 +251,7 @@ class ParsedownExtra extends Parsedown
     {
         $Span = parent::identifyLink($Excerpt);
 
-        $remainder = substr($Excerpt['text'], $Span['extent']);
+        $remainder = substr($Excerpt['text'] ?? null, $Span['extent'] ?? null);
 
         if (preg_match('/^[ ]*'.$this->attributesPattern.'/', $remainder, $matches))
         {
