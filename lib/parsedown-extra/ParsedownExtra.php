@@ -147,7 +147,7 @@ class ParsedownExtra extends Parsedown
     {
         $Block = parent::identifySetext($Line, $Block);
 
-        if (preg_match('/[ ]*'.$this->attributesPattern.'[ ]*$/', $Block['element']['text'], $matches, PREG_OFFSET_CAPTURE))
+        if (preg_match('/[ ]*'.$this->attributesPattern.'[ ]*$/', $Block['element']['text'] ?? null, $matches, PREG_OFFSET_CAPTURE))
         {
             $attributeString = $matches[1][0];
 
