@@ -18,8 +18,8 @@
 		</author>
 	</authors>
 	<releases>
-	  <release version="2.2.4" date="2022-06-15" min="2.7.10" max="2.x.x">
-			- another PHP8 small array fix in ParsedownExtra.php
+	  <release version="2.3.0" date="2022-06-15" min="2.7.10" max="2.x.x">
+			- update to Parsedown.php 1.8.0-beta-7 ParsedownExtra.php 0.8.0
 		</release>
 	  <release version="2.2.3" date="2021-12-15" min="2.7.10" max="2.x.x">
 			- PHP8 small array fix in ParsedownExtra.php
