@@ -57,6 +57,7 @@ class ParsedownExtra extends Parsedown
 
         # add footnotes
 
+       
         if (isset($this->DefinitionData['Footnote']))
         {
             $Element = $this->buildFootnoteElement();

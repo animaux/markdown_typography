@@ -67,6 +67,22 @@ Class formatterMarkdown_typography_german extends TextFormatter {
 
         // Simple n-dashes
         $string = str_replace(' - ', '&#160;&#8211; ', $string);
+        
+        // Multiplikation signs
+        $string = str_replace(' x ', ' × ', $string);
+        $string = preg_replace('/(\d)x(\d)/Uu', '$1×$2', $string);
+        
+        // Lost colons
+        $string = str_replace(' ,', ', ', $string);
+        
+        // Ellipses
+        $string = str_replace('...', '…', $string);
+        
+        // zero-with space behind slashes (for proper line-breaks)
+        $string = str_replace('/', '/​', $string);
+        
+        // proper n-dashes for number ranges
+        $string = preg_replace('/(\d)-(\d)/Uu', '$1–$2', $string);
 
         // Use non-breaking spaces before a dash
         $string = str_replace(array(
