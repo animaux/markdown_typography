@@ -82,7 +82,7 @@ Class formatterMarkdown_typography_german extends TextFormatter {
         // $string = str_replace('/', '/​', $string);
         
         // proper n-dashes for number ranges
-        $string = preg_replace('/(\d)-(\d)/Uu', '$1–$2', $string);
+        // $string = preg_replace('/(\d)-(\d)/Uu', '$1–$2', $string);
 
         // Use non-breaking spaces before a dash
         $string = str_replace(array(

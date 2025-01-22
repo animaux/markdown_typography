@@ -18,6 +18,9 @@
 		</author>
 	</authors>
 	<releases>
+	  <release version="2.3.2" date="2025-01-22" min="2.7.10" max="2.x.x">
+			- remove some of the typographic corrections again, since they messed up URLs and markup (sorry)
+		</release>
 	  <release version="2.3.1" date="2023-06-05" min="2.7.10" max="2.x.x">
 			- integrate some more typographic corrections
 		</release>
