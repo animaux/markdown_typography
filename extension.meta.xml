@@ -18,6 +18,9 @@
 		</author>
 	</authors>
 	<releases>
+	  <release version="2.3.3" date="2025-01-22" min="2.7.10" max="2.x.x">
+			- bumped parsedown extra to 0.8.2 but comment out `blockMarkup*`-classes, since they meddled with `<figure><img/></figure>` for some reason.
+		</release>
 	  <release version="2.3.2" date="2025-01-22" min="2.7.10" max="2.x.x">
 			- remove some of the typographic corrections again, since they messed up URLs and markup (sorry)
 		</release>

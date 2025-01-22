@@ -17,7 +17,7 @@ class ParsedownExtra extends Parsedown
 {
     # ~
 
-    const version = '0.8.0';
+    const version = '0.8.2';
 
     # ~
 
@@ -57,7 +57,6 @@ class ParsedownExtra extends Parsedown
 
         # add footnotes
 
-       
         if (isset($this->DefinitionData['Footnote']))
         {
             $Element = $this->buildFootnoteElement();
@@ -232,7 +231,7 @@ class ParsedownExtra extends Parsedown
     #
     # Markup
 
-    protected function blockMarkup($Line)
+    /* protected function blockMarkup($Line)
     {
         if ($this->markupEscaped or $this->safeMode)
         {
@@ -282,7 +281,7 @@ class ParsedownExtra extends Parsedown
 
             return $Block;
         }
-    }
+    } 
 
     protected function blockMarkupContinue($Line, array $Block)
     {
@@ -327,7 +326,7 @@ class ParsedownExtra extends Parsedown
         }
 
         return $Block;
-    }
+    } */
 
     #
     # Setext
@@ -509,7 +508,7 @@ class ParsedownExtra extends Parsedown
             ),
         );
 
-        uasort($this->DefinitionData['Footnote'], 'self::sortFootnotes');
+        uasort($this->DefinitionData['Footnote'], [$this, 'sortFootnotes']);
 
         foreach ($this->DefinitionData['Footnote'] as $definitionId => $DefinitionData)
         {
@@ -625,12 +624,15 @@ class ParsedownExtra extends Parsedown
 
         $DOMDocument = new DOMDocument;
 
-        # http://stackoverflow.com/q/11309194/200145
-        $elementMarkup = mb_convert_encoding($elementMarkup, 'HTML-ENTITIES', 'UTF-8');
-
-        # http://stackoverflow.com/q/4879946/200145
-        $DOMDocument->loadHTML($elementMarkup);
+        # https://www.php.net/manual/en/domdocument.loadhtml.php#95251
+        $DOMDocument->loadHTML('<?xml encoding="UTF-8"?>' . $elementMarkup);
         $DOMDocument->removeChild($DOMDocument->doctype);
+        foreach ($DOMDocument->childNodes as $Node) {
+            if ($Node->nodeType === XML_PI_NODE) {
+                $DOMDocument->removeChild($Node);
+            }
+        }
+        $DOMDocument->encoding = 'UTF-8';
         $DOMDocument->replaceChild($DOMDocument->firstChild->firstChild->firstChild, $DOMDocument->firstChild);
 
         $elementText = '';
